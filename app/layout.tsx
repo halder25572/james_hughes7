@@ -76,9 +76,13 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} ${manrope.variable}`}
     >
       <body className="antialiased">
-        <Navbar />
-        {children}
-        <Footer />
+        <div>
+          <Navbar />
+          <div className="">
+            {children}
+          </div>
+          <Footer />
+        </div>
       </body>
     </html>
   );
