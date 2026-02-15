@@ -15,7 +15,7 @@
 //         { name: "Home", href: "/" },
 //         { name: "How It Works", href: "/how-it-works" },
 //         { name: "Seller Upside", href: "/seller-upside" },
-//         { name: "What We Buy", href: "/what-we-buy" },
+//         { name: "What We Buy", href: "/whatWeBuy" },
 //     ];
 
 //     return (
@@ -163,7 +163,7 @@ export default function Navbar() {
     { name: "Home", href: "/" },
     { name: "How It Works", href: "/howItWorks" },
     { name: "Seller Upside", href: "/SellerUpsides" },
-    { name: "What We Buy", href: "/what-we-buy" },
+    { name: "What We Buy", href: "/whatWeBuy" },
   ];
 
   return (
