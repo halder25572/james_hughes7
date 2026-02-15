@@ -162,7 +162,7 @@ export default function Navbar() {
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "How It Works", href: "/howItWorks" },
-    { name: "Seller Upside", href: "/seller-upside" },
+    { name: "Seller Upside", href: "/SellerUpsides" },
     { name: "What We Buy", href: "/what-we-buy" },
   ];
 
