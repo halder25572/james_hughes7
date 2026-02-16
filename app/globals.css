@@ -2,6 +2,10 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
+
+@tailwind utilities;
+@tailwind utilities;
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -82,6 +86,32 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
+/* progressbar */
+@layer base {
+  :root {
+    --background: 210 20% 96%;
+    --foreground: 222 20% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 20% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 20% 12%;
+    --primary: 353 70% 51%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 15% 95%;
+    --secondary-foreground: 222 20% 20%;
+    --muted: 210 15% 95%;
+    --muted-foreground: 215 13% 45%;
+    --accent: 353 70% 51%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 214 15% 88%;
+    --input: 214 15% 88%;
+    --ring: 353 70% 51%;
+    --radius: 0.625rem;
+  }
+}
+
 .dark {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
@@ -120,7 +150,25 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-sora), sans-serif;
   }
 }

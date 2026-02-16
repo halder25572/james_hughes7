@@ -65,6 +65,7 @@ import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
+import Link from 'next/link';
 
 const HeroSection = () => {
     const headingRef = useRef<HTMLHeadingElement>(null);
@@ -170,9 +171,11 @@ const HeroSection = () => {
                         ref={buttonsRef}
                         className="flex flex-wrap justify-center lg:justify-start gap-4 mt-6"
                     >
-                        <Button className="bg-red-500 hover:bg-red-600 text-white rounded-full py-2.5 px-6">
+                        <Link href="/getAOffer">
+                            <Button className="bg-red-500 hover:bg-red-600 text-white rounded-full py-2.5 px-6">
                             Get A Offer
                         </Button>
+                        </Link>
 
                         <Button
                             variant="outline"

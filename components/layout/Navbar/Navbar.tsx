@@ -208,7 +208,7 @@ export default function Navbar() {
               size="lg"
               className="bg-red-600 hover:bg-red-700 px-6 py-5 text-base font-medium rounded-full shadow-md transition-all"
             >
-              <Link href="/get-offer">Get A Offer</Link>
+              <Link href="/getAOffer">Get A Offer</Link>
             </Button>
           </div>
         </div>
@@ -272,7 +272,7 @@ export default function Navbar() {
                     size="lg"
                     className="w-full bg-red-600 hover:bg-red-700 text-base font-medium rounded-full shadow-md"
                   >
-                    <Link href="/get-offer" onClick={() => setOpen(false)}>
+                    <Link href="/getAOffer" onClick={() => setOpen(false)}>
                       Get A Offer
                     </Link>
                   </Button>
