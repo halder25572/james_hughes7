@@ -21,7 +21,7 @@
 "use client";
 
 import { createContext, useContext, useState, useRef } from "react";
-import { Check, Info, Upload, X, ImageIcon, CheckCircle2 } from "lucide-react";
+import { Info, X, ImageIcon, CheckCircle2 } from "lucide-react";
 
 // ─────────────────────────────────────────────
 // TYPES
@@ -113,17 +113,6 @@ function TTextarea({ placeholder, value, onChange, rows = 3 }: {
   );
 }
 
-function NativeSelect({ value, onChange, options }: {
-  value: string; onChange: (v: string) => void; options: string[];
-}) {
-  return (
-    <select value={value} onChange={(e) => onChange(e.target.value)}
-      className="h-11 w-full rounded-lg border-[1.5px] border-gray-200 bg-white px-3.5 text-sm text-gray-900 cursor-pointer focus:outline-none focus:border-[#D72638] focus:ring-[3px] focus:ring-red-100"
-      style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b7280' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E")`, backgroundRepeat: "no-repeat", backgroundPosition: "right 14px center", paddingRight: "38px", appearance: "none" }}>
-      {options.map((o) => <option key={o}>{o}</option>)}
-    </select>
-  );
-}
 
 function Field({ label, req, opt, hint, children }: {
   label: string; req?: boolean; opt?: string; hint?: string; children: React.ReactNode;
