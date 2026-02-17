@@ -23,31 +23,33 @@ const STEPS: Record<number, React.ReactNode> = {
   6: <Step6 />,
   7: <Step7 />,
   8: <Step8 />,
-  9: <ThankYou/>,
+  9: <ThankYou />,
 };
 
 export function MultiStepForm() {
   const { currentStep } = useFormContext();
 
   return (
-    <div className="mx-auto px-4 py-8 sm:py-10">
-      {currentStep < 8 && <StepProgress />}
-      {currentStep === 8 && (
-        <div className="mb-5">
-          <div className="flex items-center justify-between mb-3">
-            <span className="text-[13px] font-medium text-muted-foreground tracking-wide">
-              Step 8 of 8
-            </span>
-            <span className="text-[13px] font-semibold text-emerald-600">
-              ✓ Complete!
-            </span>
+    <section className="">
+      <div className="w-full mx-auto px-4 py-8 sm:py-10">
+        {currentStep < 8 && <StepProgress />}
+        {currentStep === 8 && (
+          <div className="mb-5">
+            <div className="flex items-center justify-between mb-3">
+              <span className="text-[13px] font-medium text-muted-foreground tracking-wide">
+                Step 8 of 8
+              </span>
+              <span className="text-[13px] font-semibold text-emerald-600">
+                ✓ Complete!
+              </span>
+            </div>
+            <div className="h-1.5 w-full rounded-full bg-border/70 overflow-hidden">
+              <div className="h-full rounded-full bg-emerald-500 transition-all duration-500" style={{ width: "100%" }} />
+            </div>
           </div>
-          <div className="h-1.5 w-full rounded-full bg-border/70 overflow-hidden">
-            <div className="h-full rounded-full bg-emerald-500 transition-all duration-500" style={{ width: "100%" }} />
-          </div>
-        </div>
-      )}
-      <div key={currentStep}>{STEPS[currentStep]}</div>
-    </div>
+        )}
+        <div key={currentStep}>{STEPS[currentStep]}</div>
+      </div>
+    </section>
   );
 }

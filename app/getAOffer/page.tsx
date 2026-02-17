@@ -5,7 +5,7 @@ import { MultiStepForm } from "@/components/MultiStepForm";
 
 const GetAOfferPage = () => {
   return (
-    <main className="flex items-start justify-center">
+    <main className="w-full bg-[#F9FAFB] flex items-start justify-center">
       <FormProvider>
         <MultiStepForm />
       </FormProvider>

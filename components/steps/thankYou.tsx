@@ -14,7 +14,7 @@ export default function ThankYou() {
 
   return (
     <div
-      className="bg-[#f0f2f5] flex items-center justify-center px-4 py-12"
+      className="flex items-center justify-center px-4 py-12"
       style={{ animation: "fadeSlide 0.4s ease forwards" }}
     >
       <div className="flex flex-col items-center text-center">

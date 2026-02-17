@@ -3,24 +3,16 @@
 import React, { createContext, useContext, useState } from "react";
 
 export interface FormData {
-  // Step 1
   assetType: string;
-  // Step 2
   year: string;
   make: string;
   model: string;
   mileage: string;
   vin: string;
-  // Step 3
   condition: string;
-  // Step 4
   titleSituation: string;
-  // Step 5 — photos handled locally in component
-  // Step 6
   mainGoal: string;
-  // Step 7
   sellerUpside: string;
-  // Step 8
   fullName: string;
   phone: string;
   email: string;
