@@ -1,7 +1,6 @@
 "use client";
 
-import { useFormContext } from "./FormContext";
-
+import { useFormContext } from "@/components/FormContext";
 
 const TOTAL_STEPS = 8;
 const PERCENTAGES = [13, 25, 38, 50, 63, 75, 88, 100];
@@ -13,16 +12,16 @@ export function StepProgress() {
   return (
     <div className="mb-5">
       <div className="flex items-center justify-between mb-3">
-        <span className="text-[13px] font-medium text-muted-foreground tracking-wide">
+        <span className="text-[13px] font-medium text-[#D72638] tracking-wide">
           Step {currentStep} of {TOTAL_STEPS}
         </span>
-        <span className="text-[13px] font-semibold text-brand">
+        <span className="text-[13px] font-semibold text-[#D72638]">
           {pct}% Complete
         </span>
       </div>
       <div className="h-1.5 w-full rounded-full bg-border/70 overflow-hidden">
         <div
-          className="h-full rounded-full bg-brand transition-all duration-500 ease-in-out"
+          className="h-full rounded-full bg-[#D72638] transition-all duration-500 ease-in-out"
           style={{ width: `${pct}%` }}
         />
       </div>

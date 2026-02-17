@@ -34,14 +34,14 @@ export function Step1() {
                 type="button"
                 onClick={() => updateFormData({ assetType: type.label })}
                 className={cn(
-                  "relative text-left rounded-lg border-[1.5px] px-4 py-4 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40",
+                  "relative text-left cursor-pointer rounded-lg border-[1.5px] px-4 py-4 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40",
                   selected
-                    ? "border-brand bg-brand-light"
+                    ? "border-[#D93E39]   bg-[#FFF0F1]"
                     : "border-border bg-white hover:border-slate-300 hover:bg-slate-50"
                 )}
               >
                 {selected && (
-                  <span className="absolute top-2.5 right-2.5 flex h-5 w-5 items-center justify-center rounded-full bg-brand text-white text-[10px] font-bold">
+                  <span className="absolute top-2.5 right-2.5 flex h-5 w-5 items-center justify-center rounded-full bg-[#D93E39] text-white text-[10px] font-bold">
                     ✓
                   </span>
                 )}

@@ -19,7 +19,7 @@ export function Step2() {
         <div className="grid grid-cols-2 gap-4 mb-4">
           <div className="space-y-1.5">
             <Label htmlFor="year">
-              Year <span className="text-brand">*</span>
+              Year <span className="text-[#D93E39]">*</span>
             </Label>
             <Input
               id="year"
@@ -30,7 +30,7 @@ export function Step2() {
           </div>
           <div className="space-y-1.5">
             <Label htmlFor="make">
-              Make <span className="text-brand">*</span>
+              Make <span className="text-[#D93E39]">*</span>
             </Label>
             <Input
               id="make"
@@ -43,7 +43,7 @@ export function Step2() {
 
         <div className="space-y-1.5 mb-4">
           <Label htmlFor="model">
-            Model <span className="text-brand">*</span>
+            Model <span className="text-[#D93E39]">*</span>
           </Label>
           <Input
             id="model"
@@ -83,10 +83,10 @@ export function Step2() {
         </div>
 
         <div className="flex gap-3">
-          <Button variant="outline" className="flex-1" onClick={goBack}>
+          <Button variant="outline" className="flex-1 border border-[#D93E39] hover:bg-[#FFF0F1] text-[#D93E39] cursor-pointer" onClick={goBack}>
             Back
           </Button>
-          <Button className="flex-1 bg-[#D93E39] text-white" onClick={goNext}>
+          <Button className="flex-1 bg-[#D93E39] cursor-pointer text-white" onClick={goNext}>
             Continue
           </Button>
         </div>

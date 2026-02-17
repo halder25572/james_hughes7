@@ -14,10 +14,10 @@ export default function ThankYou() {
 
   return (
     <div
-      className="w-full min-h-screen bg-[#f0f2f5] flex items-center justify-center px-4 py-12"
+      className="bg-[#f0f2f5] flex items-center justify-center px-4 py-12"
       style={{ animation: "fadeSlide 0.4s ease forwards" }}
     >
-      <div className="w-full max-w-145 flex flex-col items-center text-center">
+      <div className="flex flex-col items-center text-center">
 
         {/* Green Check Circle */}
         <div className="w-18 h-18 rounded-full bg-green-100 flex items-center justify-center mb-6 shadow-sm">

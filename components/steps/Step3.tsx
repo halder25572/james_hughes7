@@ -74,10 +74,10 @@ export function Step3() {
         </div>
 
         <div className="flex gap-3">
-          <Button variant="outline" className="flex-1" onClick={goBack}>
+          <Button variant="outline" className="flex-1 border-[#D93E39] hover:bg-[#FFF0F1] text-[#D93E39] cursor-pointer" onClick={goBack}>
             Back
           </Button>
-          <Button className="flex-1 bg-[#D93E39] text-white" onClick={goNext}>
+          <Button className="flex-1 bg-[#D93E39] cursor-pointer text-white" onClick={goNext}>
             Continue
           </Button>
         </div>
