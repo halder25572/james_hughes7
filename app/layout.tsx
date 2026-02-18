@@ -77,11 +77,11 @@ export default function RootLayout({
     >
       <body className="antialiased">
         <div>
-          <Navbar />
+          {/* <Navbar /> */}
           <div className="">
             {children}
           </div>
-          <Footer />
+          {/* <Footer /> */}
         </div>
       </body>
     </html>
