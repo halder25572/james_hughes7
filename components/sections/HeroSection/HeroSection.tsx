@@ -172,17 +172,19 @@ const HeroSection = () => {
                         className="flex flex-wrap justify-center lg:justify-start gap-4 mt-6"
                     >
                         <Link href="/getAOffer">
-                            <Button className="bg-red-500 hover:bg-red-600 text-white rounded-full py-2.5 px-6">
+                            <Button className="bg-red-500 cursor-pointer hover:bg-red-600 text-white rounded-full py-2.5 px-6">
                                 Get A Offer
                             </Button>
                         </Link>
 
-                        <Button
-                            variant="outline"
-                            className="border-red-400 text-red-500 rounded-full py-2.5 px-6"
-                        >
-                            How Seller Upside Works
-                        </Button>
+                        <Link href="/SellerUpsides">
+                            <Button
+                                variant="outline"
+                                className="border-red-400 cursor-pointer text-red-500 rounded-full py-2.5 px-6"
+                            >
+                                How Seller Upside Works
+                            </Button>
+                        </Link>
                     </div>
                 </div>
 

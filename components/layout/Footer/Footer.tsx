@@ -86,7 +86,7 @@ export default function Footer() {
           <div className="flex flex-col items-start md:items-end justify-center">
             <Button
               size="lg"
-              className="bg-red-600 hover:bg-red-700 text-white px-8 py-6 text-base font-medium rounded-full shadow-lg transition-all"
+              className="bg-red-600 cursor-pointer hover:bg-red-700 text-white px-8 py-6 text-base font-medium rounded-full shadow-lg transition-all"
             >
               Get an Offer
             </Button>

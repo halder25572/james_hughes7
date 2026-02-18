@@ -33,120 +33,106 @@
 
 // export default TrustedBy;
 
+
 'use client';
 
-import Image from "next/image";
+import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Marquee from 'react-fast-marquee';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const TrustedBy = () => {
-    const titleRef = useRef<HTMLHeadingElement>(null);
-    const logosRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
 
-    useEffect(() => {
-        const ctx = gsap.context(() => {
-            // Set initial states
-            gsap.set(titleRef.current, {
-                opacity: 0,
-                y: 20
-            });
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.set(titleRef.current, { opacity: 0, y: 20 });
 
-            const logos = logosRef.current?.querySelectorAll('div > div');
-            if (logos) {
-                gsap.set(logos, {
-                    opacity: 0,
-                    y: 30,
-                    scale: 0.8
-                });
-            }
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: titleRef.current,
+          start: 'top 80%',
+          toggleActions: 'play none none reverse',
+        },
+      });
 
-            // Create timeline with ScrollTrigger
-            const tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: titleRef.current,
-                    start: 'top 80%',
-                    end: 'bottom 20%',
-                    toggleActions: 'play none none reverse'
-                }
-            });
+      tl.to(titleRef.current, {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: 'power3.out',
+      });
+    });
 
-            // Animate title
-            tl.to(titleRef.current, {
-                opacity: 1,
-                y: 0,
-                duration: 0.8,
-                ease: 'power3.out'
-            });
+    return () => ctx.revert();
+  }, []);
 
-            // Animate logos with stagger
-            if (logos) {
-                tl.to(logos, {
-                    opacity: 1,
-                    y: 0,
-                    scale: 1,
-                    duration: 0.6,
-                    stagger: 0.1,
-                    ease: 'back.out(1.2)'
-                }, '-=0.4');
-            }
-
-            // Continuous subtle animation on logos
-            if (logos) {
-                logos.forEach((logo, index) => {
-                    gsap.to(logo, {
-                        y: -5,
-                        duration: 2 + (index * 0.2),
-                        repeat: -1,
-                        yoyo: true,
-                        ease: 'power1.inOut',
-                        delay: index * 0.1 + 1
-                    });
-                });
-            }
-
+  // We keep subtle float animation via GSAP, but apply it to marquee children
+  useEffect(() => {
+    // Optional: subtle floating effect
+    const logos = document.querySelectorAll('.marquee-logo');
+    if (logos.length) {
+      logos.forEach((logo, index) => {
+        gsap.to(logo, {
+          y: -6,
+          duration: 2.4 + index * 0.2,
+          repeat: -1,
+          yoyo: true,
+          ease: 'sine.inOut',
+          delay: index * 0.15,
         });
+      });
+    }
+  }, []);
 
-        return () => ctx.revert();
-    }, []);
+  const brands = [
+    { src: '/images/Vector.svg', alt: 'Brand 1' },
+    { src: '/images/2.svg', alt: 'Brand 2' },
+    { src: '/images/3.svg', alt: 'Brand 3' },
+    { src: '/images/4.svg', alt: 'Brand 4' },
+    { src: '/images/5.svg', alt: 'Brand 5' },
+    { src: '/images/6.svg', alt: 'Brand 6' },
+  ];
 
-    return (
-        <div className="py-8.75 bg-[#E5E7EA] px-4 rounded-lg">
-            <h1 
-                ref={titleRef}
-                className="text-[26px] text-[#6D717F] font-semibold text-center"
+  return (
+    <div className="py-12 md:py-16 bg-[#6D717F] px-4 rounded-lg overflow-hidden">
+      <h1
+        ref={titleRef}
+        className="text-2xl md:text-[26px] text-[#F3F4F6] font-semibold text-center mb-10"
+      >
+        Trusted By
+      </h1>
+
+      <div className="max-w-7xl mx-auto">
+        <Marquee
+          speed={40}              // adjust speed (higher = faster)
+          pauseOnHover            // very common & user-friendly
+          gradient={false}        // remove side fade if you don't like it
+          // gradientWidth={200}  // if you want gradient → uncomment
+          direction="left"        // default is left (right → left scroll)
+        >
+          {brands.map((brand, i) => (
+            <div
+              key={i}
+              className="marquee-logo mx-8 md:mx-12 lg:mx-16 shrink-0"
             >
-                Trusted By
-            </h1>
-            <div className="max-w-7xl mx-auto">
-                <div 
-                    ref={logosRef}
-                    className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mt-8 items-center"
-                >
-                    <div>
-                        <Image src="/images/Vector.svg" alt="Brand 1" className="mx-auto my-4" width={100} height={100} />
-                    </div>
-                    <div>
-                        <Image src="/images/2.svg" alt="Brand 2" className="mx-auto my-4" width={100} height={100} />
-                    </div>
-                    <div>
-                        <Image src="/images/3.svg" alt="Brand 3" className="mx-auto my-4" width={100} height={100} />
-                    </div>
-                    <div>
-                        <Image src="/images/4.svg" alt="Brand 4" className="mx-auto my-4" width={100} height={100} />
-                    </div>
-                    <div>
-                        <Image src="/images/5.svg" alt="Brand 5" className="mx-auto my-4" width={100} height={100} />
-                    </div>
-                    <div>
-                        <Image src="/images/6.svg" alt="Brand 6" className="mx-auto my-4" width={100} height={100} />
-                    </div>
-                </div>
+              <Image
+                src={brand.src}
+                alt={brand.alt}
+                width={120}
+                height={120}
+                className="max-w-25 md:max-w-27.5 lg:max-w-32.5 h-auto object-contain brightness-0 invert"
+              />
             </div>
-        </div>
-    );
+          ))}
+        </Marquee>
+      </div>
+    </div>
+  );
 };
 
 export default TrustedBy;
+

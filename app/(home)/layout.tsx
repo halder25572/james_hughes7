@@ -1,20 +1,26 @@
-import Footer from "@/components/layout/Footer/Footer";
-import Navbar from "@/components/layout/Navbar/Navbar";
-import { ReactNode } from "react";
+// import Footer from "@/components/layout/Footer/Footer";
+// import Navbar from "@/components/layout/Navbar/Navbar";
+// import { ReactNode } from "react";
 
 
-type MainLayoutProps = {
-  children: ReactNode;
-};
+// type MainLayoutProps = {
+//   children: ReactNode;
+// };
 
-const MainLayout = ({children}: MainLayoutProps) => {
-    return (
-        <div>
-            <Navbar/>
-            {children}
-            <Footer/>
-        </div>
-    );
+// const MainLayout = ({children}: MainLayoutProps) => {
+//     return (
+//         <div>
+//             <Navbar/>
+//             {children}
+//             <Footer/>
+//         </div>
+//     );
+// };
+
+// export default MainLayout;
+
+const MainLayout = ({ children }: { children: React.ReactNode }) => {
+    return <div>{children}</div>;
 };
 
 export default MainLayout;

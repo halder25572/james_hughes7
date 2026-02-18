@@ -1,11 +1,10 @@
-// tailwind.config.ts
 import type { Config } from "tailwindcss";
 
-const config: Config = {
+const config = {
   content: [
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
@@ -22,21 +21,22 @@ const config: Config = {
         display: ["var(--font-sora)", "sans-serif"],
       },
       keyframes: {
-        "fade-slide-in": {
+        fadeSlideIn: {
           "0%": { opacity: "0", transform: "translateY(12px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
-        "scale-in": {
+        scaleIn: {
           "0%": { opacity: "0", transform: "scale(0.95)" },
           "100%": { opacity: "1", transform: "scale(1)" },
         },
       },
       animation: {
-        "fade-slide-in": "fade-slide-in 0.3s ease forwards",
-        "scale-in": "scale-in 0.25s ease forwards",
+        fadeSlideIn: "fadeSlideIn 0.3s ease forwards",
+        scaleIn: "scaleIn 0.25s ease forwards",
       },
     },
   },
   plugins: [],
-};
+} satisfies Config;
+
 export default config;

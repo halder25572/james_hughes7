@@ -238,35 +238,7 @@ export default function Step8() {
   const { formData, updateFormData, goNext, goBack } = useFormContext();
 
   const handleSubmit = async () => {
-    // ✅ Console এ সব data দেখুন
-    // console.log("═══════════════════════════════════════");
-    // console.log("📋 FORM SUBMISSION DATA");
-    // console.log("═══════════════════════════════════════");
-    // console.log("⏰ Timestamp:", new Date().toLocaleString());
-    // console.log("─────────────────────────────────────");
-    // console.log("🚗 Vehicle Information:");
-    // console.log("  Asset Type:", formData.assetType);
-    // console.log("  Year:", formData.year);
-    // console.log("  Make:", formData.make);
-    // console.log("  Model:", formData.model);
-    // console.log("  Mileage:", formData.mileage || "N/A");
-    // console.log("  VIN:", formData.vin || "N/A");
-    // console.log("  Condition:", formData.condition);
-    // console.log("─────────────────────────────────────");
-    // console.log("📄 Additional Details:");
-    // console.log("  Title Situation:", formData.titleSituation || "N/A");
-    // console.log("  Main Goal:", formData.mainGoal || "N/A");
-    // console.log("  Seller Upside:", formData.sellerUpside || "N/A");
-    // console.log("─────────────────────────────────────");
-    // console.log("👤 Contact Information:");
-    // console.log("  Full Name:", formData.fullName);
-    // console.log("  Phone:", formData.phone);
-    // console.log("  Email:", formData.email || "N/A");
-    // console.log("  Notes:", formData.notes || "N/A");
-    // console.log("═══════════════════════════════════════");
-    // console.log("📦 Complete Data Object:");
-    // console.log(JSON.stringify(formData, null, 2));
-    console.log("═══════════════════════════════════════");
+
     console.log(formData);
     // ⏸️ API Call (পরে uncomment করবেন যখন backend API পাবেন)
     /*

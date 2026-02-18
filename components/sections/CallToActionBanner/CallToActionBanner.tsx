@@ -54,6 +54,7 @@ import { Button } from "@/components/ui/button";
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -199,14 +200,16 @@ export default function CallToActionBanner({
             >
               {heading}
             </h2>
-            <Button
+            <Link href="/getAOffer">
+              <Button
               ref={buttonRef}
               onClick={onButtonClick}
               size="lg"
-              className="rounded-full bg-linear-to-r from-red-500 to-red-600 px-8 py-3 text-base font-medium text-white shadow-lg transition-all hover:from-red-600 hover:to-red-700 hover:scale-105 hover:shadow-xl md:px-10 md:text-lg"
+              className="rounded-full cursor-pointer bg-linear-to-r from-red-500 to-red-600 px-8 py-3 text-base font-medium text-white shadow-lg transition-all hover:from-red-600 hover:to-red-700 hover:scale-105 hover:shadow-xl md:px-10 md:text-lg"
             >
               {buttonText}
             </Button>
+            </Link>
           </div>
         </div>
       </div>
