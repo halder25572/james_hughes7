@@ -464,11 +464,11 @@ const SellerUpsides = () => {
         </div>
 
         {/* ── CTA button ── */}
-        <div ref={btnRef} className="flex justify-center mt-12">
+        {/* <div ref={btnRef} className="flex justify-center mt-12">
           <Button className="bg-[#D93E39] cursor-pointer">
             See If My Vehicle Qualifies
           </Button>
-        </div>
+        </div> */}
 
       </div>
     </section>
