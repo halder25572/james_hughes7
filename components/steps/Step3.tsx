@@ -33,7 +33,7 @@ export function Step3() {
   const { formData, updateFormData, goNext, goBack } = useFormContext();
 
   return (
-    <Card className="animate-fade-slide-in">
+    <Card className="max-w-7xl mx-auto animate-fade-slide-in">
       <CardHeader>
         <CardTitle>What&apos;s the current condition?</CardTitle>
         <CardDescription>Be honest—it helps us give you the best offer possible.</CardDescription>

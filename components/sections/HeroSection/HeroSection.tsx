@@ -107,29 +107,29 @@ const HeroSection = () => {
                 y: 0,
                 duration: 1.2
             })
-            .to(descRef.current, {
-                opacity: 1,
-                y: 0,
-                duration: 1
-            }, '-=0.8')
-            .to(buttonsRef.current, {
-                opacity: 1,
-                y: 0,
-                duration: 1
-            }, '-=0.7')
-            // Animate right image
-            .to(imageRef.current, {
-                opacity: 1,
-                scale: 1,
-                x: 0,
-                duration: 1.2
-            }, '-=0.9')
-            // Animate badge
-            .to(badgeRef.current, {
-                opacity: 1,
-                y: 0,
-                duration: 0.8
-            }, '-=0.5');
+                .to(descRef.current, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1
+                }, '-=0.8')
+                .to(buttonsRef.current, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1
+                }, '-=0.7')
+                // Animate right image
+                .to(imageRef.current, {
+                    opacity: 1,
+                    scale: 1,
+                    x: 0,
+                    duration: 1.2
+                }, '-=0.9')
+                // Animate badge
+                .to(badgeRef.current, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8
+                }, '-=0.5');
 
             // Continuous floating animation for image
             gsap.to(imageRef.current, {
@@ -152,14 +152,14 @@ const HeroSection = () => {
 
                 {/* LEFT CONTENT */}
                 <div className="order-2 lg:order-1 text-center lg:text-left">
-                    <h1 
+                    <h1
                         ref={headingRef}
                         className="text-[45px] sm:text-4xl lg:text-5xl font-bold leading-tight"
                     >
                         Turn Your Vehicle, <br /> Power Sports, or <br /> Commercial Assets <br /> To Cash
                     </h1>
 
-                    <p 
+                    <p
                         ref={descRef}
                         className="mt-4 text-[#6D717F] max-w-xl mx-auto lg:mx-0"
                     >
@@ -167,14 +167,14 @@ const HeroSection = () => {
                         upside for qualifying vehicles.
                     </p>
 
-                    <div 
+                    <div
                         ref={buttonsRef}
                         className="flex flex-wrap justify-center lg:justify-start gap-4 mt-6"
                     >
                         <Link href="/getAOffer">
                             <Button className="bg-red-500 hover:bg-red-600 text-white rounded-full py-2.5 px-6">
-                            Get A Offer
-                        </Button>
+                                Get A Offer
+                            </Button>
                         </Link>
 
                         <Button
@@ -198,7 +198,7 @@ const HeroSection = () => {
                     />
 
                     {/* Overlay Badge */}
-                    <div 
+                    <div
                         ref={badgeRef}
                         className="absolute bottom-3 left-3 right-3 bg-black/60 backdrop-blur-md text-white text-xs md:text-sm p-3 rounded-xl flex flex-wrap gap-3 justify-center lg:justify-start"
                     >

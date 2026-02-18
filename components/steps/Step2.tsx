@@ -10,7 +10,7 @@ export function Step2() {
   const { formData, updateFormData, goNext, goBack } = useFormContext();
 
   return (
-    <Card className="animate-fade-slide-in">
+    <Card className="max-w-7xl mx-auto animate-fade-slide-in">
       <CardHeader>
         <CardTitle>Tell us about your car / truck / suv</CardTitle>
         <CardDescription>Basic details help us provide an accurate assessment.</CardDescription>

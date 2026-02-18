@@ -19,7 +19,7 @@ export default function Step4() {
 
   return (
     <div
-      className="w-full rounded-xl border border-gray-200 bg-white shadow-[0_4px_24px_rgba(0,0,0,0.07)]"
+      className="max-w-7xl mx-auto rounded-xl border border-gray-200 bg-white shadow-[0_4px_24px_rgba(0,0,0,0.07)]"
       style={{ animation: "fadeSlide 0.3s ease forwards" }}
     >
       {/* Header */}
