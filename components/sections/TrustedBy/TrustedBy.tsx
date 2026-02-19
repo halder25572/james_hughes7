@@ -95,6 +95,18 @@ const TrustedBy = () => {
     { src: '/images/4.svg', alt: 'Brand 4' },
     { src: '/images/5.svg', alt: 'Brand 5' },
     { src: '/images/6.svg', alt: 'Brand 6' },
+    { src: '/images/Vector.svg', alt: 'Brand 1' },
+    { src: '/images/2.svg', alt: 'Brand 2' },
+    { src: '/images/3.svg', alt: 'Brand 3' },
+    { src: '/images/4.svg', alt: 'Brand 4' },
+    { src: '/images/5.svg', alt: 'Brand 5' },
+    { src: '/images/6.svg', alt: 'Brand 6' },
+    { src: '/images/Vector.svg', alt: 'Brand 1' },
+    { src: '/images/2.svg', alt: 'Brand 2' },
+    { src: '/images/3.svg', alt: 'Brand 3' },
+    { src: '/images/4.svg', alt: 'Brand 4' },
+    { src: '/images/5.svg', alt: 'Brand 5' },
+    { src: '/images/6.svg', alt: 'Brand 6' },
   ];
 
   return (
@@ -106,7 +118,7 @@ const TrustedBy = () => {
         Trusted By
       </h1>
 
-      <div className="max-w-7xl mx-auto">
+      <div className="">
         <Marquee
           speed={40}              // adjust speed (higher = faster)
           pauseOnHover            // very common & user-friendly

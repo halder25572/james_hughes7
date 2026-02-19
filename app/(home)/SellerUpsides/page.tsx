@@ -1,5 +1,9 @@
 import SellerUpsides from '@/components/sections/SellerUpside/SellerUpside.stsx/SellerUpsides';
-import React from 'react';
+
+
+export const metadata = {
+  title: "VintoCash || Seller Upside"
+}
 
 const SellerUpsidesPage = () => {
     return (

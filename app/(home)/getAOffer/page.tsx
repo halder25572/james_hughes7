@@ -3,7 +3,7 @@ import { MultiStepForm } from "@/components/MultiStepForm";
 
 
 export const metadata = {
-  title: "Get A Offer"
+  title: "VintoCash || Get A Offer"
 }
 
 

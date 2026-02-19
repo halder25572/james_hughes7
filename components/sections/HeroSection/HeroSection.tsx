@@ -132,14 +132,14 @@ const HeroSection = () => {
                 }, '-=0.5');
 
             // Continuous floating animation for image
-            gsap.to(imageRef.current, {
-                y: -10,
-                duration: 2.5,
-                repeat: -1,
-                yoyo: true,
-                ease: 'power1.inOut',
-                delay: 1.5
-            });
+            // gsap.to(imageRef.current, {
+            //     y: -10,
+            //     duration: 2.5,
+            //     repeat: -1,
+            //     yoyo: true,
+            //     ease: 'power1.inOut',
+            //     delay: 1.5
+            // });
 
         });
 
