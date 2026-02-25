@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -69,12 +70,12 @@ export default function WhatWeBuy() {
         duration: 0.8,
         ease: 'power3.out'
       })
-      .to(subtitleRef.current, {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-        ease: 'power3.out'
-      }, '-=0.5');
+        .to(subtitleRef.current, {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          ease: 'power3.out'
+        }, '-=0.5');
 
       // Animate cards with stagger
       if (cards) {
@@ -123,14 +124,14 @@ export default function WhatWeBuy() {
       <div className="max-w-6xl mx-auto px-4 text-center">
 
         {/* Title */}
-        <h2 
+        <h2
           ref={titleRef}
           className="text-3xl md:text-2xl font-semibold"
         >
           WHAT WE BUY
         </h2>
 
-        <p 
+        <p
           ref={subtitleRef}
           className="mt-2 text-gray-500 text-[20px] md:text-base"
         >
@@ -138,7 +139,7 @@ export default function WhatWeBuy() {
         </p>
 
         {/* Grid */}
-        <div 
+        <div
           ref={gridRef}
           className="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6"
         >
@@ -164,16 +165,18 @@ export default function WhatWeBuy() {
         </div>
 
         {/* Button */}
-        <div 
+        <div
           ref={buttonRef}
           className="mt-8"
         >
-          <Button
-            variant="outline"
-            className="rounded-full mt-9 py-2.5 px-6 border-[#D93E39] text-red-500"
-          >
-            See Full List
-          </Button>
+          <Link href="/whatWeBuy">
+            <Button
+              variant="outline"
+              className="rounded-full cursor-pointer mt-9 py-2.5 px-6 border-[#D93E39] text-red-500"
+            >
+              See Full List
+            </Button>
+          </Link>
         </div>
 
       </div>

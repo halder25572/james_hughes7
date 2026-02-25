@@ -16,7 +16,5 @@ async function getConditions() {
 }
 
 export default async function Page() {
-  const conditions = await getConditions();
-
-  return <Step3 conditions={conditions} />;
+  return <Step3 />;
 }
