@@ -9,23 +9,40 @@ function cn(...cls: (string | boolean | undefined)[]) {
 }
 
 export default function Step5() {
-  const { goNext, goBack } = useFormContext();
+  const { formData, updateFormData, goNext, goBack } = useFormContext();
   const inputRef = useRef<HTMLInputElement>(null);
+
+  // Local previews for display — actual File objects go to FormContext
   const [previews, setPreviews] = useState<{ name: string; src: string }[]>([]);
   const [dragging, setDragging] = useState(false);
 
   const handleFiles = (files: FileList | null) => {
     if (!files) return;
-    Array.from(files).forEach((file) => {
+
+    const newFiles = Array.from(files);
+
+    // Save File objects to FormContext
+    updateFormData({ images: [...(formData.images ?? []), ...newFiles] });
+
+    // Generate local previews for display
+    newFiles.forEach((file) => {
       const reader = new FileReader();
       reader.onload = (e) => {
-        if (e.target?.result)
+        if (e.target?.result) {
           setPreviews((p) => [
             ...p,
             { name: file.name, src: e.target!.result as string },
           ]);
+        }
       };
       reader.readAsDataURL(file);
+    });
+  };
+
+  const removeImage = (index: number) => {
+    setPreviews((prev) => prev.filter((_, i) => i !== index));
+    updateFormData({
+      images: (formData.images ?? []).filter((_, i) => i !== index),
     });
   };
 
@@ -61,45 +78,23 @@ export default function Step5() {
           onDrop={onDrop}
           className={cn(
             "w-full rounded-xl border-[1.5px] transition-all duration-200 mb-4 overflow-hidden",
-            dragging
-              ? "border-[#D72638] bg-red-50"
-              : "border-gray-200 bg-white"
+            dragging ? "border-[#D72638] bg-red-50" : "border-gray-200 bg-white"
           )}
         >
           {/* Upload area */}
           <div className="flex flex-col items-center justify-center py-10 px-4">
-            {/* Upload Icon */}
             <div className="mb-3 text-gray-400">
-              <svg
-                width="38"
-                height="38"
-                viewBox="0 0 38 38"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M19 26V14M19 14L14 19M19 14L24 19"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M7 28C4.8 26.5 3 24 3 21C3 17.1 6.1 14 10 14C10.4 14 10.7 14 11 14.1C12.1 10.6 15.3 8 19 8C23.4 8 27 11.6 27 16C27 16.3 27 16.6 26.9 16.9C29.8 17.6 32 20.1 32 23C32 25.5 30.5 27.7 28.3 28.7"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                />
+              <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19 26V14M19 14L14 19M19 14L24 19" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M7 28C4.8 26.5 3 24 3 21C3 17.1 6.1 14 10 14C10.4 14 10.7 14 11 14.1C12.1 10.6 15.3 8 19 8C23.4 8 27 11.6 27 16C27 16.3 27 16.6 26.9 16.9C29.8 17.6 32 20.1 32 23C32 25.5 30.5 27.7 28.3 28.7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
               </svg>
             </div>
-
             <p className="text-[14px] font-medium text-gray-700 mb-1">
               Drag and drop or click to upload
             </p>
             <p className="text-[12px] text-gray-400 mb-4 text-center">
               Photos of exterior, interior, dashboard, and any damage
             </p>
-
             <button
               type="button"
               onClick={() => inputRef.current?.click()}
@@ -109,7 +104,7 @@ export default function Step5() {
             </button>
           </div>
 
-          {/* Preview grid — shows after upload */}
+          {/* Preview grid */}
           {previews.length > 0 && (
             <div className="border-t border-gray-100 px-4 py-4">
               <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4">
@@ -123,9 +118,7 @@ export default function Step5() {
                     />
                     <button
                       type="button"
-                      onClick={() =>
-                        setPreviews((prev) => prev.filter((_, j) => j !== i))
-                      }
+                      onClick={() => removeImage(i)}
                       className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-gray-800 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"
                     >
                       <X className="w-3 h-3" />
