@@ -25,11 +25,11 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5">
           <div className="relative">
-            <Image src="/images/logo.png" alt="VintoCash Logo" width={137} height={0} />
+            <Image src="/images/logo.jpg" alt="VintoCash Logo" width={137} height={0} />
           </div>
-          <span className="text-[30px] font-bold tracking-tight text-gray-900">
+          {/* <span className="text-[30px] font-bold tracking-tight text-gray-900">
             <span className="text-[#D93E39]">Vinto</span>Cash
-          </span>
+          </span> */}
         </Link>
 
         <div className="flex items-center gap-6">
