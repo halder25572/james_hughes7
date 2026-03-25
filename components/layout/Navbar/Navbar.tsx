@@ -60,7 +60,7 @@ export default function Navbar() {
             <Button
               asChild
               size="lg"
-              className="bg-red-600 hover:bg-red-700 px-6 py-5 text-base font-medium rounded-full shadow-md transition-all"
+              className="bg-[#D93E39] px-6 py-5 text-base font-medium rounded-full shadow-md transition-all"
             >
               <Link href="/getAOffer">Get A Offer</Link>
             </Button>
@@ -124,7 +124,7 @@ export default function Navbar() {
                   <Button
                     asChild
                     size="lg"
-                    className="w-full bg-red-600 hover:bg-red-700 text-base font-medium rounded-full shadow-md"
+                    className="w-full bg-[#D93E39] text-base font-medium rounded-full shadow-md"
                   >
                     <Link href="/getAOffer" onClick={() => setOpen(false)}>
                       Get A Offer
