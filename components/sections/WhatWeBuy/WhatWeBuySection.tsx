@@ -49,7 +49,7 @@ const WhatWeBuySection = () => {
     const [conditions, setConditions] = useState<Condition[]>([]);
     const [loading, setLoading] = useState(true);
 
-    // ── Fetch APIs ─────────────────────────────────────────────────────────
+    // ── Fetch APIs ────────────────────────────────
     useEffect(() => {
         const fetchAll = async () => {
             try {

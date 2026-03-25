@@ -17,6 +17,7 @@ export default function Navbar() {
     { name: "How It Works", href: "/howItWorks" },
     { name: "Seller Upside", href: "/SellerUpsides" },
     { name: "What We Buy", href: "/whatWeBuy" },
+    { name: "Dealers", href: "/dealers" },
   ];
 
   return (

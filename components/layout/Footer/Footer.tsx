@@ -34,8 +34,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/seller-update" className="hover:text-white transition-colors">
-                  Seller Update
+                <Link href="/SellerUpsides" className="hover:text-white transition-colors">
+                  Seller Upside
                 </Link>
               </li>
               <li>

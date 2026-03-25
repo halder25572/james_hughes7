@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "export": "next export"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
@@ -21,7 +22,7 @@
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-fast-marquee": "^1.6.5",
-    "react-hook-form": "^7.71.2",
+    "react-hook-form": "^7.72.0",
     "sonner": "^2.0.7",
     "tailwind-merge": "^3.4.0",
     "vercel": "^50.18.2",
