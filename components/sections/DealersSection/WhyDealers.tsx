@@ -1,25 +1,3 @@
-// import Image from "next/image";
-
-
-// const WhyDealers = () => {
-//     return (
-//         <section>
-//             <div className="pb-30">
-//                 {/* left side */}
-//                 <div>
-                    
-//                 </div>
-//                 {/* right side */}
-//                 <div>
-//                     <Image className="rounded-[24px]" src="/images/whydealers.jpg" width={650} height={329} alt="images" />
-//                 </div>
-//             </div>
-//         </section>
-//     );
-// };
-
-// export default WhyDealers;
-
 import Image from "next/image";
 
 const benefits = [
@@ -73,9 +51,7 @@ const WhyDealers = () => {
               </li>
             ))}
           </ul>
-
         </div>
-
         {/* Right side */}
         <div className="w-full sm:w-[90%] md:w-[75%] lg:w-1/2 shrink-0">
           <Image
@@ -86,7 +62,6 @@ const WhyDealers = () => {
             alt="Why Dealers Join"
           />
         </div>
-
       </div>
     </section>
   );

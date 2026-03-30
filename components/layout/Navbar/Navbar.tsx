@@ -18,6 +18,11 @@ export default function Navbar() {
     { name: "Seller Upside", href: "/SellerUpsides" },
     { name: "What We Buy", href: "/whatWeBuy" },
     { name: "Dealers", href: "/dealers" },
+    // { name: "Dealers Network", href: "/https://vintocash-dashboard.vercel.app/dashboard" },
+    {
+      name: "Dealers Network",
+      href: "https://vintocash-dashboard.vercel.app/dashboard"   // ← Fixed
+    },
   ];
 
   return (
@@ -37,17 +42,19 @@ export default function Navbar() {
           {/* Desktop Navigation */}
           <nav className="hidden gap-12 md:flex">
             {navLinks.map((link) => {
+              const isExternal = link.href.startsWith("http");
               const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
 
               return (
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`text-[16px] font-medium transition-colors ${
-                    isActive
+                  target={isExternal ? "_blank" : undefined}  
+                  rel={isExternal ? "noopener noreferrer" : undefined}
+                  className={`text-[16px] font-medium transition-colors ${isActive
                       ? "text-[#D93E39] font-semibold" // Active: red color + bold
                       : "text-[#6D717F] hover:text-gray-900"
-                  }`}
+                    }`}
                 >
                   {link.name}
                 </Link>
@@ -107,11 +114,10 @@ export default function Navbar() {
                     <Link
                       key={link.name}
                       href={link.href}
-                      className={`font-medium text-center transition-colors ${
-                        isActive
+                      className={`font-medium text-center transition-colors ${isActive
                           ? "text-[#D93E39] font-semibold"
                           : "text-gray-700 hover:text-gray-900"
-                      }`}
+                        }`}
                       onClick={() => setOpen(false)}
                     >
                       {link.name}

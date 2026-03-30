@@ -76,7 +76,6 @@ export default function PartnerMarquee() {
           ))}
         </div>
       </div>
-
     </section>
   );
 }

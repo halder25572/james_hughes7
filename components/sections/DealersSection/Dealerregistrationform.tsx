@@ -559,32 +559,45 @@ export default function DealerRegistrationForm() {
     },
   });
 
+  // const onSubmit = async (data: FormData) => {
+  //   setIsSubmitting(true);
+  //   setSubmitError(null);
+
+  //   try {
+  //     const response = await fetch("/api/dealer-registration", {
+  //       method: "POST",
+  //       headers: { "Content-Type": "application/json" },
+  //       body: JSON.stringify(data),
+  //     });
+
+  //     if (!response.ok) {
+  //       const errorData = await response.json().catch(() => ({}));
+  //       throw new Error(errorData?.message || "Submission failed. Please try again.");
+  //     }
+
+  //     reset();
+  //     setShowModal(true);
+  //   } catch (error: unknown) {
+  //     setSubmitError(
+  //       error instanceof Error ? error.message : "An unexpected error occurred."
+  //     );
+  //   } finally {
+  //     setIsSubmitting(false);
+  //   }
+  // };
+
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
-    setSubmitError(null);
 
-    try {
-      const response = await fetch("/api/dealer-registration", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
+    // Simulate short delay
+    await new Promise((resolve) => setTimeout(resolve, 800));
 
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        throw new Error(errorData?.message || "Submission failed. Please try again.");
-      }
-
-      reset();
-      setShowModal(true);
-    } catch (error: unknown) {
-      setSubmitError(
-        error instanceof Error ? error.message : "An unexpected error occurred."
-      );
-    } finally {
-      setIsSubmitting(false);
-    }
+    console.log("Form Data:", data);
+    reset();
+    setShowModal(true);
+    setIsSubmitting(false);
   };
+
 
   return (
     <div className="min-h-screen bg-slate-100 flex items-center justify-center p-4 sm:p-6 lg:p-8">
@@ -599,12 +612,12 @@ export default function DealerRegistrationForm() {
           />
 
           {/* Modal Card */}
-          <div className="relative bg-white rounded-3xl shadow-2xl w-full max-w-sm mx-auto px-8 py-10 flex flex-col items-center text-center overflow-hidden">
+          <div className="relative bg-white rounded-3xl shadow-2xl w-full max-w-3xl mx-auto px-8 py-10 flex flex-col items-center text-center overflow-hidden">
             {/* Decorative top-right blob */}
             <div className="absolute -top-10 -right-10 w-40 h-40 bg-rose-50 rounded-full opacity-60 pointer-events-none" />
 
             {/* Check icon */}
-            <div className="w-14 h-14 bg-red-600 rounded-full flex items-center justify-center mb-6 shadow-lg shadow-red-200 z-10">
+            <div className="w-14 h-14 bg-[#D93E39] rounded-full flex items-center justify-center mb-6 shadow-lg shadow-red-200 z-10">
               <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
               </svg>
@@ -620,7 +633,7 @@ export default function DealerRegistrationForm() {
 
             {/* What happens next */}
             <div className="w-full bg-gray-50 rounded-2xl px-5 py-4 mb-7 text-left">
-              <p className="text-xs font-semibold text-red-600 mb-3">What happens next?</p>
+              <p className="text-xs font-semibold text-[#D93E39] mb-3">What happens next?</p>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
                   <div className="mt-0.5 w-5 h-5 rounded-full border border-gray-300 flex items-center justify-center shrink-0">
@@ -659,7 +672,7 @@ export default function DealerRegistrationForm() {
             <div className="flex flex-col sm:flex-row gap-3 w-full">
               <a
                 href="/"
-                className="flex-1 bg-red-600 hover:bg-red-700 text-white text-sm font-semibold px-5 py-3 rounded-xl transition-colors flex items-center justify-center gap-2"
+                className="flex-1 bg-[#D93E39] text-white text-sm font-semibold px-5 py-3 rounded-xl transition-colors flex items-center justify-center gap-2"
               >
                 Return to Homepage
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -668,7 +681,7 @@ export default function DealerRegistrationForm() {
               </a>
               <button
                 onClick={() => setShowModal(false)}
-                className="flex-1 border border-gray-200 hover:border-gray-300 text-gray-700 text-sm font-semibold px-5 py-3 rounded-xl transition-colors"
+                className="flex-1 border cursor-pointer border-gray-200 hover:border-gray-300 text-gray-700 text-sm font-semibold px-5 py-3 rounded-xl transition-colors"
               >
                 Contact Support
               </button>
@@ -699,12 +712,11 @@ export default function DealerRegistrationForm() {
               <input
                 {...register("dealershipName", { required: "Required" })}
                 placeholder="e.g. Prestige Motors"
-                className={`w-full border rounded-lg px-3 py-2.5 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-400 transition ${
-                  errors.dealershipName ? "border-red-400 bg-red-50" : "border-gray-200 bg-gray-50"
-                }`}
+                className={`w-full border rounded-lg px-3 py-2.5 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-400 transition ${errors.dealershipName ? "border-red-400 bg-red-50" : "border-gray-200 bg-gray-50"
+                  }`}
               />
               {errors.dealershipName && (
-                <p className="text-xs text-red-500 mt-1">{errors.dealershipName.message}</p>
+                <p className="text-xs text-[#D93E39] mt-1">{errors.dealershipName.message}</p>
               )}
             </div>
             <div>
@@ -714,12 +726,11 @@ export default function DealerRegistrationForm() {
               <input
                 {...register("contactName", { required: "Required" })}
                 placeholder="John Doe"
-                className={`w-full border rounded-lg px-3 py-2.5 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-400 transition ${
-                  errors.contactName ? "border-red-400 bg-red-50" : "border-gray-200 bg-gray-50"
-                }`}
+                className={`w-full border rounded-lg px-3 py-2.5 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-400 transition ${errors.contactName ? "border-red-400 bg-red-50" : "border-gray-200 bg-gray-50"
+                  }`}
               />
               {errors.contactName && (
-                <p className="text-xs text-red-500 mt-1">{errors.contactName.message}</p>
+                <p className="text-xs text-[#D93E39] mt-1">{errors.contactName.message}</p>
               )}
             </div>
           </div>
@@ -737,12 +748,11 @@ export default function DealerRegistrationForm() {
                 })}
                 placeholder="(555) 000-0000"
                 type="tel"
-                className={`w-full border rounded-lg px-3 py-2.5 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-400 transition ${
-                  errors.phoneNumber ? "border-red-400 bg-red-50" : "border-gray-200 bg-gray-50"
-                }`}
+                className={`w-full border rounded-lg px-3 py-2.5 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-400 transition ${errors.phoneNumber ? "border-red-400 bg-red-50" : "border-gray-200 bg-gray-50"
+                  }`}
               />
               {errors.phoneNumber && (
-                <p className="text-xs text-red-500 mt-1">{errors.phoneNumber.message}</p>
+                <p className="text-xs text-[#D93E39] mt-1">{errors.phoneNumber.message}</p>
               )}
             </div>
             <div>
@@ -756,12 +766,11 @@ export default function DealerRegistrationForm() {
                 })}
                 placeholder="john@dealership.com"
                 type="email"
-                className={`w-full border rounded-lg px-3 py-2.5 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-400 transition ${
-                  errors.emailAddress ? "border-red-400 bg-red-50" : "border-gray-200 bg-gray-50"
-                }`}
+                className={`w-full border rounded-lg px-3 py-2.5 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-400 transition ${errors.emailAddress ? "border-red-400 bg-red-50" : "border-gray-200 bg-gray-50"
+                  }`}
               />
               {errors.emailAddress && (
-                <p className="text-xs text-red-500 mt-1">{errors.emailAddress.message}</p>
+                <p className="text-xs text-[#D93E39] mt-1">{errors.emailAddress.message}</p>
               )}
             </div>
           </div>
@@ -772,24 +781,22 @@ export default function DealerRegistrationForm() {
               <label className="block text-xs font-medium text-gray-600 mb-1">City</label>
               <input
                 {...register("city", { required: "Required" })}
-                className={`w-full border rounded-lg px-3 py-2.5 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-400 transition ${
-                  errors.city ? "border-red-400 bg-red-50" : "border-gray-200 bg-gray-50"
-                }`}
+                className={`w-full border rounded-lg px-3 py-2.5 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-400 transition ${errors.city ? "border-red-400 bg-red-50" : "border-gray-200 bg-gray-50"
+                  }`}
               />
               {errors.city && (
-                <p className="text-xs text-red-500 mt-1">{errors.city.message}</p>
+                <p className="text-xs text-[#D93E39] mt-1">{errors.city.message}</p>
               )}
             </div>
             <div>
               <label className="block text-xs font-medium text-gray-600 mb-1">State</label>
               <input
                 {...register("state", { required: "Required" })}
-                className={`w-full border rounded-lg px-3 py-2.5 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-400 transition ${
-                  errors.state ? "border-red-400 bg-red-50" : "border-gray-200 bg-gray-50"
-                }`}
+                className={`w-full border rounded-lg px-3 py-2.5 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-400 transition ${errors.state ? "border-red-400 bg-red-50" : "border-gray-200 bg-gray-50"
+                  }`}
               />
               {errors.state && (
-                <p className="text-xs text-red-500 mt-1">{errors.state.message}</p>
+                <p className="text-xs text-[#D93E39] mt-1">{errors.state.message}</p>
               )}
             </div>
           </div>
@@ -802,12 +809,11 @@ export default function DealerRegistrationForm() {
               </label>
               <input
                 {...register("licenseNumber", { required: "Required" })}
-                className={`w-full border rounded-lg px-3 py-2.5 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-400 transition ${
-                  errors.licenseNumber ? "border-red-400 bg-red-50" : "border-gray-200 bg-gray-50"
-                }`}
+                className={`w-full border rounded-lg px-3 py-2.5 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-400 transition ${errors.licenseNumber ? "border-red-400 bg-red-50" : "border-gray-200 bg-gray-50"
+                  }`}
               />
               {errors.licenseNumber && (
-                <p className="text-xs text-red-500 mt-1">{errors.licenseNumber.message}</p>
+                <p className="text-xs text-[#D93E39] mt-1">{errors.licenseNumber.message}</p>
               )}
             </div>
             <div>
@@ -835,7 +841,7 @@ export default function DealerRegistrationForm() {
                     type="radio"
                     value={method}
                     {...register("bestContactMethod")}
-                    className="w-4 h-4 accent-red-600"
+                    className="w-4 h-4 accent-[#D93E39]"
                   />
                   <span className="text-sm text-gray-700 capitalize">{method}</span>
                 </label>
@@ -866,7 +872,7 @@ export default function DealerRegistrationForm() {
                             field.onChange(field.value.filter((v) => v !== value));
                           }
                         }}
-                        className="w-4 h-4 accent-red-600 rounded"
+                        className="w-4 h-4 accent-[#D93E39] rounded"
                       />
                       <span className="text-sm text-gray-700">{label}</span>
                     </label>
@@ -952,7 +958,7 @@ export default function DealerRegistrationForm() {
           {/* Submit Error */}
           {submitError && (
             <div className="bg-red-50 border border-red-200 rounded-lg px-4 py-3">
-              <p className="text-sm text-red-600">{submitError}</p>
+              <p className="text-sm text-[#D93E39]">{submitError}</p>
             </div>
           )}
 
@@ -960,7 +966,7 @@ export default function DealerRegistrationForm() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-red-600 hover:bg-red-700 disabled:bg-red-400 text-white font-semibold py-3 rounded-xl text-sm tracking-wide transition-colors duration-200 flex items-center justify-center gap-2 mt-2"
+            className="w-full bg-[#D93E39] cursor-pointer disabled:bg-red-400 text-white font-semibold py-3 rounded-xl text-sm tracking-wide transition-colors duration-200 flex items-center justify-center gap-2 mt-2"
           >
             {isSubmitting ? (
               <>
